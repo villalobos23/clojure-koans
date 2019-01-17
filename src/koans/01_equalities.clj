@@ -24,16 +24,17 @@
   (= true (not (= 1 nil)))
 
   "Strings, and keywords, and symbols: oh my!"
-  (= true (= "hello" :hello 'hello))
+  (= false (= "hello" :hello 'hello)) ;https://stackoverflow.com/questions/11655080/in-clojure-why-have-strings-keywords-and-symbols
 
   "Make a keyword with your keyboard"
-  (= :hello (keyword __))
+  (= :hello (keyword "hello"))
 
   "Symbolism is all around us"
-  (= 'hello (symbol __))
+  (= 'hello (symbol "hello")) ;https://stackoverflow.com/questions/2320348/symbols-in-clojure
 
   "What could be equivalent to nothing?"
-  (= __ nil)
+  (= nil nil)
 
   "When things cannot be equal, they must be different"
-  (not= :fill-in-the-blank __))
+  (not= :fill-in-the-blank "a different thing"))
+
