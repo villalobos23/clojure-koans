@@ -4,17 +4,17 @@
 (defn multiply-by-ten [n]
   (* 10 n))
 
-(defn square [n] (* n n))
+(defn square [n] (* n n)); named function
 
 (meditations
   "Calling a function is like giving it a hug with parentheses"
-  (= __ (square 9))
+  (= 81 (square 9))
 
   "Functions are usually defined before they are used"
-  (= __ (multiply-by-ten 2))
+  (= 20 (multiply-by-ten 2))
 
   "But they can also be defined inline"
-  (= __ ((fn [n] (* 5 n)) 2))
+  (= __ ((fn [n] (* 5 n)) 2)) ;anonymous function
 
   "Or using an even shorter syntax"
   (= __ (#(* 15 %) 4))

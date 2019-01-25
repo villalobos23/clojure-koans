@@ -60,8 +60,8 @@
      (sort (vals {2010 "Vancouver" 2014 "Sochi" 2018 "PyeongChang"})))
 
   "You can even iterate over the map entries as a seq"
-  (= {:a __ :b __}
-     (into {}
-           (map
-            (fn [[k v]] [k (inc v)])
-            {:a 1 :b 2}))))
+  (= {:a 2 :b 3}
+     (into {} ; creates a new map that receives the results of the following 
+           (map ;iterates each key-value
+            (fn [[k v]] [k (inc v)]) ;keeps the same key (k) and increments the value by one (inc v)
+            {:a 1 :b 2})))) ;use this map as the structure to be iterated
