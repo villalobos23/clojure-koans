@@ -10,7 +10,7 @@
 
 (meditations
   "You will face many decisions"
-  (= __ (if (false? (= 4 5))
+  (= :a (if (false? (= 4 5)); if function returns the first one when the evaluations return true
           :a
           :b))
 
