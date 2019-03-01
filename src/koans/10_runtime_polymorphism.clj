@@ -9,20 +9,21 @@
                           (interpose ", " (cons a more)))
                    "!")))
 
-(defmulti diet (fn [x] (:eater x)))
-(defmethod diet :herbivore [a] __)
-(defmethod diet :carnivore [a] __)
-(defmethod diet :default [a] __)
+;https://stackoverflow.com/questions/8545920/constructing-clojure-defmulti-defmethod
+(defmulti diet (fn [x] (:eater x)));multimethods define the function name, and a dispatching function. Looks a lot like a switch
+(defmethod diet :herbivore [a] (str (:name a) " eats veggies.")); then each defmethod - specific implementation for each dispatch function value - defines what to do
+(defmethod diet :carnivore [a] (str (:name a) " eats animals."))
+(defmethod diet :default [a] (str "I don't know what " (:name a) " eats."));this is the same as the default keyword in other languages
 
 (meditations
   "Some functions can be used in different ways - with no arguments"
-  (= __ (hello))
+  (= "Hello World!" (hello))
 
   "With one argument"
-  (= __ (hello "world"))
+  (= "Hello, you silly world." (hello "world"))
 
   "Or with many arguments"
-  (= __
+  (= "Hello to this group: Peter, Paul, Mary!"
      (hello "Peter" "Paul" "Mary"))
 
   "Multimethods allow more complex dispatching"
